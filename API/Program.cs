@@ -1,3 +1,4 @@
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<StoreContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
@@ -31,6 +33,20 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+using var scoop = app.Services.CreateScope();
+var services = scoop.ServiceProvider;
+var logger = services.GetRequiredService<ILogger<Program>>();
+var context = services.GetRequiredService<StoreContext>();
+try
+{
+    await context.Database.MigrateAsync();
+    await StoreContextSeed.SeedAsync(context, logger);
+}
+catch (Exception ex)
+{
+    logger.LogError(ex, "An error occured during migration");
+}
+
 app.Run();
 
-// run in command line dotnet run --launch-profile https
+// dotnet run --launch-profile https
