@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <section class="col-3">
-      <h5 class="text-warning ml-3">Sort</h5>
+      <h5 class="text-warning ms-3">Sort</h5>
       <select
         class="form-select my-3"
         (change)="onSortSelected($any($event.target).value)"
@@ -11,7 +11,7 @@
         </option>
       </select>
 
-      <h5 class="text-warning ml-3">Brands</h5>
+      <h5 class="text-warning ms-3">Brands</h5>
       <ul class="list-group mb-3">
         <li
           class="list-group-item"
@@ -23,7 +23,7 @@
           {{ brand.name }}
         </li>
       </ul>
-      <h5 class="text-warning ml-3">Types</h5>
+      <h5 class="text-warning ms-3">Types</h5>
       <ul class="list-group my-3">
         <li
           class="list-group-item"
@@ -46,7 +46,7 @@
         <div class="form-inline mt-2">
           <input
             (keyup.enter)="onSearch()"
-            class="form-control mr-2"
+            class="form-control me-2"
             #search
             placeholder="Search"
             type="text"
@@ -54,7 +54,7 @@
           <button (click)="onSearch()" class="btn btn-outline-primary my-2">
             Search
           </button>
-          <button (click)="onReset()" class="btn btn-outline-success ml-2 my-2">
+          <button (click)="onReset()" class="btn btn-outline-success ms-2 my-2">
             Reset
           </button>
         </div>
