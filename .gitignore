@@ -4,3 +4,5 @@ appsettings.json
 *.db
 API/skinet.db-shm
 API/skinet.db-wal
+.vs
+*.rdb
