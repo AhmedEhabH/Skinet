@@ -15,9 +15,6 @@ namespace API.Extensions
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration _config)
         {
             services.AddScoped<ITokenService, TokenService>();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            services.AddEndpointsApiExplorer();
-            services.AddSwaggerGen();
 
             // Database connection
             services.AddDbContext<StoreContext>(opt =>
