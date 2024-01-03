@@ -1,0 +1,16 @@
+<div class="form-floating mb-3">
+    <input type={{type}} [formControl]="control" placeholder="form-control" class="form-control"
+        [ngClass]="(control.touched) ? control.invalid ? 'is-invalid' : 'is-valid' : null" />
+    
+    <div *ngIf="controlDir && controlDir.control && controlDir.control.status === 'PENDING'" class="fa fa-spinner fa-spin loader"></div>
+    <label for="{{label}}">{{label}}</label>
+    <div class="invalid-feedback"
+        *ngIf="(controlDir && controlDir.control && !controlDir.control.valid && controlDir.control.touched)">
+        <span *ngIf="controlDir.control.errors?.['required']">{{label}} is required</span>
+        <span *ngIf="controlDir.control.errors?.['pattern']">{{label}} Invalid</span>
+    </div>
+    <div class="invalid-feedback d-block"
+        *ngIf="(controlDir && controlDir.control && !controlDir.control.valid && controlDir.control.dirty)">
+        <span *ngIf="controlDir.control.errors?.['emailExists']">{{label}} is in use</span>
+    </div>
+</div>
