@@ -14,15 +14,14 @@ namespace API.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration _config)
         {
-            services.AddScoped<ITokenService, TokenService>();
-
             // Database connection
             services.AddDbContext<StoreContext>(opt =>
             {
                 opt.UseSqlite(_config.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddDbContext<AppIdentityDbContext>(x => {
+            services.AddDbContext<AppIdentityDbContext>(x =>
+            {
                 x.UseSqlite(_config.GetConnectionString("IdentityConnection"));
             });
 
@@ -31,7 +30,10 @@ namespace API.Extensions
                 var configuration = ConfigurationOptions.Parse(_config?.GetConnectionString("Redis"), true);
                 return ConnectionMultiplexer.Connect(configuration);
             });
-
+            
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IBasketRepository, BasketRepository>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
