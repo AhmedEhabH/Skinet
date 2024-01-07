@@ -1,4 +1,4 @@
-export interface IAddsress {
+export interface IAddress {
     firstName: string
     lastName: string
     street: string
