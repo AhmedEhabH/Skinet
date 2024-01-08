@@ -11,22 +11,21 @@ import { IAddress } from '../shared/models/address';
 })
 export class AccountService {
   baseUrl = environment.apiUrl;
-  // private currentUserSource = new BehaviorSubject<IUser>(null);
-  private currentUserSource = new ReplaySubject<IUser>(4);
+  private currentUserSource = new ReplaySubject<IUser>(1);
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient, private router: Router) { }
 
   loadCurrentUser(token: string) {
-    if (token === null) {
+    if (token == null) {
       this.currentUserSource.next(null);
       return of(null);
     }
-    let headers = new HttpHeaders();
 
+    let headers = new HttpHeaders();
     headers = headers.set('Authorization', `Bearer ${token}`);
 
-    return this.http.get(this.baseUrl + 'account', { headers }).pipe(
+    return this.http.get(this.baseUrl + 'account', {headers}).pipe(
       map((user: IUser) => {
         if (user) {
           localStorage.setItem('token', user.token);
@@ -68,7 +67,7 @@ export class AccountService {
     return this.http.get(this.baseUrl + 'account/emailexists?email=' + email);
   }
 
-  getUSerAddress() {
+  getUserAddress() {
     return this.http.get<IAddress>(this.baseUrl + 'account/address');
   }
 

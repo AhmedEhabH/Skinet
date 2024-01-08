@@ -15,7 +15,8 @@ export interface IOrder {
     shippingPrice: number
     orderItems: IOrderItem[]
     subtotal: number
-    status: string
+    status: string,
+    total:number
 }
 
 

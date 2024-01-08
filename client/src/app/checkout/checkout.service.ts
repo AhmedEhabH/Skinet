@@ -22,6 +22,6 @@ export class CheckoutService {
       map((dm: IDeliveryMethod[]) => {
         return dm.sort((a, b) => b.price - a.price);
       })
-    );
+    )
   }
 }

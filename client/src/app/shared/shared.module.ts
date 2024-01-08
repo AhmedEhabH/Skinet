@@ -12,6 +12,7 @@ import { CdkStepperModule } from "@angular/cdk/stepper";
 import { StepperComponent } from './components/stepper/stepper.component';
 import { BasketSummaryComponent } from './basket-summary/basket-summary.component';
 import { RouterModule } from '@angular/router';
+import { OrdersModule } from '../orders/orders.module';
 
 @NgModule({
   declarations: [PaggingHeaderComponent, PagerComponent, OrderTotalsComponent, TextInputComponent, StepperComponent, BasketSummaryComponent],
