@@ -30,6 +30,7 @@ namespace API.Extensions
                 var configuration = ConfigurationOptions.Parse(_config?.GetConnectionString("Redis"), true);
                 return ConnectionMultiplexer.Connect(configuration);
             });
+            services.AddSingleton<IResponseCacheService, ResponseCacheService>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITokenService, TokenService>();
