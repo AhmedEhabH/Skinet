@@ -19,17 +19,31 @@ export class BasketService {
   shipping = 0;
 
   constructor(private http: HttpClient) { }
-  
+
+  createPaymentIntent() {
+    return this.http.post(this.baseUrl + 'payments/' + this.getCurrentBasketValue().id, {})
+      .pipe(map((basket: IBasket) => {
+        this.basketSource.next(basket);
+        // console.log(this.getCurrentBasketValue());
+      }))
+  }
+
   setShippingPrice(deliveryMethod: IDeliveryMethod) {
     this.shipping = deliveryMethod.price;
+    const basket = this.getCurrentBasketValue();
+    basket.deliveryMethodId = deliveryMethod.id;
+    basket.shippingPrice = deliveryMethod.price;
     this.calculateTotals();
+    this.setBasket(basket);
   }
 
   getBasket(id: string) {
     return this.http.get(this.baseUrl + 'basket?id=' + id)
       .pipe(
         map((basket: IBasket) => {
+          // console.log(basket);
           this.basketSource.next(basket);
+          this.shipping = basket.shippingPrice;
           this.calculateTotals();
         })
       )
@@ -80,7 +94,7 @@ export class BasketService {
       if (basket.items.length > 0) {
         this.setBasket(basket);
       } else {
-        this.deleteBasket(basket); 
+        this.deleteBasket(basket);
       }
     }
   }
@@ -106,7 +120,7 @@ export class BasketService {
     const shipping = this.shipping;
     const subtotal = basket.items.reduce((a, b) => (b.price * b.quantity) + a, 0);
     const total = subtotal + shipping;
-    this.basketTotalSource.next({shipping, total, subtotal});
+    this.basketTotalSource.next({ shipping, total, subtotal });
   }
 
 
