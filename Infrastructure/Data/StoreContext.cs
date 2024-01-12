@@ -1,7 +1,9 @@
+using System.ComponentModel;
 using System.Reflection;
 using Core.Entities;
 using Core.Entities.OrderAggregate;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Data
@@ -43,6 +45,20 @@ namespace Infrastructure.Data
                     }
                 }
             }
+            // if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Npgsql")
+            // {
+            //     AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+            //     foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            //     {
+            //         var dateTimeProperties = entityType.ClrType.GetProperties()
+            //                                 .Where(p => p.PropertyType == typeof(DateTimeOffset));
+            //         foreach (var property in dateTimeProperties)
+            //         {
+            //             modelBuilder.Entity(entityType.Name).Property(property.Name)
+            //                 .HasConversion(typeof(DateTimeKind));
+            //         }
+            //     }
+            // }
         }
     }
 }
