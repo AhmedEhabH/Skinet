@@ -1,0 +1,12 @@
+![Screenshot 2024-01-13 000004](https://github.com/AhmedEhabH/Skinet/assets/26286025/3ab4dffa-4eb4-4585-8e84-f466b3625f86)
+![Screenshot 2024-01-13 000015](https://github.com/AhmedEhabH/Skinet/assets/26286025/90c69655-dd8c-4f3a-9140-73b7492c5378)
+![Screenshot 2024-01-13 000026](https://github.com/AhmedEhabH/Skinet/assets/26286025/2478d383-9c13-49e8-a594-09b8c9cb2ce4)
+![Screenshot 2024-01-13 000032](https://github.com/AhmedEhabH/Skinet/assets/26286025/8b6d7644-8fa7-4f20-b2f6-f41972e5096a)
+![Screenshot 2024-01-13 000043](https://github.com/AhmedEhabH/Skinet/assets/26286025/b7e47444-e509-4d82-9b6e-b32f7abb5e1e)
+![Screenshot 2024-01-13 000122](https://github.com/AhmedEhabH/Skinet/assets/26286025/d2775e17-d69a-4d32-9853-37c4aa0ce4d7)
+![Screenshot 2024-01-13 000130](https://github.com/AhmedEhabH/Skinet/assets/26286025/91e7bee1-571d-4fae-a962-0ba9b62ae030)
+![Screenshot 2024-01-13 000137](https://github.com/AhmedEhabH/Skinet/assets/26286025/0ebec837-7cff-4678-b35c-e8b08b6c0980)
+![Screenshot 2024-01-13 000159](https://github.com/AhmedEhabH/Skinet/assets/26286025/ba71e894-3b0e-43db-9bcc-155c3ce91d22)
+![Screenshot 2024-01-13 000208](https://github.com/AhmedEhabH/Skinet/assets/26286025/32384ab1-1bc3-480d-b700-bd820cd48ca4)
+![Screenshot 2024-01-13 000333](https://github.com/AhmedEhabH/Skinet/assets/26286025/cd252458-4ab0-46e0-adfe-874480cdde68)
+
